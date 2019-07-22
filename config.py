@@ -1,10 +1,17 @@
-# Parent config class
-class Config(object):
-    pass
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Child config class (base on activated environement)
-class ProdConfig(Config):
-    pass
-
-class DevConfig(Config):
+class Config: 
+    pass 
+ 
+class ProdConfig(Config): 
+    pass 
+ 
+class DevConfig(Config): 
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = os.getenv('DEV_DATABASE_URL')
+
+config = {
+    'development'   : DevConfig,
+    'production'    : ProdConfig
+}
