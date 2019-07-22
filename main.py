@@ -10,10 +10,10 @@ app.config.from_object(config[os.getenv('FLASK_ENV')])
 def home():
     return '<h1>Hello world</h1>'
 
-from models import db, User
+from models import *
 @app.shell_context_processor
 def make_shell_context():
-    return dict(app=app, db=db, User=User)
+    return dict(app=app, db=db, User=User, Post=Post, Tag=Tag, Comment=Comment)
 
 if __name__ == '__main__':
     app.run()
