@@ -1,9 +1,11 @@
-from flask_sqlalchemy import SQLAlchemy
 from main import app
-
 from datetime import datetime
 
+from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy(app)
+
+from flask_migrate import Migrate
+migrate = Migrate(app, db)
 
 class User(db.Model):
     __tablename__ = 'users'

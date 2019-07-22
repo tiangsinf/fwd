@@ -13,7 +13,7 @@ def home():
 from models import *
 @app.shell_context_processor
 def make_shell_context():
-    return dict(app=app, db=db, User=User, Post=Post, Tag=Tag, Comment=Comment)
+    return dict(app=app, db=db, migrate=migrate, User=User, Post=Post, Tag=Tag, Comment=Comment)
 
 if __name__ == '__main__':
     app.run()
